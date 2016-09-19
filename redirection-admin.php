@@ -98,11 +98,11 @@ class Redirection_Admin {
 		if ( is_multisite() ) {
 			foreach(wp_get_sites() as $site) {
 				switch_to_blog($site['blog_id']); // switch sites
-				$this->site_do_update();
+				static::site_do_update();
 				restore_current_blog(); // restore site
 			}
 		} else {
-			$this->site_do_update();
+			static::site_do_update();
 		}
 		return true;
 	}
